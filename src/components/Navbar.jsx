@@ -25,7 +25,7 @@ const Navbar = () => {
             src="/public/logo.jpg"
             alt="logo"
             width={50}
-            className=" object-contain"
+            className="rounded-full object-contain"
           />
           <p className="text-white text-[18px] font-bold cursor-pointer flex ">
             Kalpit &nbsp; <span className="sm:block hidden">Chandekar </span>
