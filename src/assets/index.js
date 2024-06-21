@@ -36,6 +36,9 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import metaverse from "./metaverse.png";
+import travel from "./travel.png";
+import tictactoe from "./tictactoe.png";
 
 export {
   logo,
@@ -73,4 +76,7 @@ export {
   vercel,
   vscode,
   sass,
+  metaverse,
+  travel,
+  tictactoe,
 };
