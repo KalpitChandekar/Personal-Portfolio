@@ -163,7 +163,7 @@ const testimonials = [
     name: "Prathmesh Tokekar",
     designation: "CEO",
     company: "Salk AI",
-    image: "/public/testimonial/prathmesh.jpeg",
+    image: "/testimonial/prathmesh.jpeg",
   },
   {
     testimonial:
@@ -171,7 +171,7 @@ const testimonials = [
     name: "Rohit Ghivdonde",
     designation: "COO",
     company: "Salk AI",
-    image: "/public/testimonial/rohit.jpeg",
+    image: "/testimonial/rohit.jpeg",
   },
   {
     testimonial:
@@ -179,7 +179,7 @@ const testimonials = [
     name: "Karan Chandekar",
     designation: "Frontend Developer",
     company: "Salk AI",
-    image: "/public/testimonial/karan.jpeg",
+    image: "/testimonial/karan.jpeg",
   },
 ];
 
