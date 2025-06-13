@@ -31,11 +31,15 @@ export const navLinks = [
   },
   {
     id: "experience",
-    title: "experience",
+    title: "Experience",
   },
   {
     id: "projects",
-    title: "projects",
+    title: "Projects",
+  },
+  {
+    id: "testimonials",
+    title: "Testimonials",
   },
   {
     id: "contact",
@@ -135,32 +139,47 @@ const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
+  {
+    title: "Frontend Developer",
+    company_name: "Salk AI",
+    icon: salk,
+    iconBg: "#100d25",
+    date: "Jan 2025 - Present",
+    points: [
+      "Leading the frontend development of Salk AI's core product (https://sales.salk.ai/), building scalable and high-performance user interfaces with Next.js and modern web technologies.",
+      "Developing and maintaining the official company website (https://salk.ai/) to ensure a seamless, engaging, and responsive user experience for clients and prospects.",
+      "Collaborating closely with product, design, and backend teams to deliver new features, optimize workflows, and ensure consistent branding across platforms.",
+      "Implementing real-time chat and AI-driven features to enhance lead qualification, instant responses, and automated scheduling for B2B sales clients.",
+      "Ensuring accessibility, cross-browser compatibility, and mobile responsiveness across all web properties.",
+      "Monitoring analytics and user feedback to drive continuous improvement and deliver measurable business impact.",
+    ],
+  },
 ];
 
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Kalpit proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+      "Kalpit consistently delivers high-quality work and brings innovative solutions to our product. His dedication is a key asset to Salk AI.",
+    name: "Prathmesh Tokekar",
+    designation: "CEO",
+    company: "Salk AI",
+    image: "/public/testimonial/prathmesh.jpeg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Kalpit does.",
-    name: "Chris Brown",
+      "Working with Kalpit is always a pleasure. He is proactive, reliable, and a true team player.",
+    name: "Rohit Ghivdonde",
     designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    company: "Salk AI",
+    image: "/public/testimonial/rohit.jpeg",
   },
   {
     testimonial:
-      "After Kalpit optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+      "Kalpit's technical skills and attention to detail make him a standout developer on our team.",
+    name: "Karan Chandekar",
+    designation: "Frontend Developer",
+    company: "Salk AI",
+    image: "/public/testimonial/karan.jpeg",
   },
 ];
 

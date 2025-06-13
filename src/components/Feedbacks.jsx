@@ -16,28 +16,27 @@ const FeedbackCard = ({
 }) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full"
+    className="bg-black-200 py-10 px-8 rounded-3xl xs:w-[320px] w-full flex flex-col justify-between min-h-[320px]"
   >
-    <p className="text-white font-black text-[48px]">"</p>
-
-    <div className="mt-1">
-      <p className="text-white tracking-wider text-[18px]">{testimonial}</p>
-
-      <div className="mt-7 flex justify-between items-center gap-1">
-        <div className="flex-1 flex flex-col">
-          <p className="text-white font-medium text-[16px]">
-            <span className="blue-text-gradient">@</span> {name}
-          </p>
-          <p className="mt-1 text-secondary text-[12px]">
-            {designation} of {company}
-          </p>
-        </div>
-
+    <p className="text-white font-black text-[48px] mb-4">"</p>
+    <div className="flex-1 flex flex-col justify-between">
+      <p className="text-white tracking-wider text-[18px] mb-6">
+        {testimonial}
+      </p>
+      <div className="flex items-center gap-4 mt-auto">
         <img
           src={image}
           alt={`feedback_by-${name}`}
-          className="w-10 h-10 rounded-full object-cover"
+          className="w-12 h-12 rounded-full object-cover border-2 border-secondary bg-white"
         />
+        <div className="flex flex-col">
+          <p className="text-white font-medium text-[16px]">
+            <span className="blue-text-gradient">@</span> {name}
+          </p>
+          <p className="text-secondary text-[12px]">
+            {designation} of {company}
+          </p>
+        </div>
       </div>
     </div>
   </motion.div>
@@ -63,4 +62,4 @@ const Feedbacks = () => {
   );
 };
 
-export default SectionWrapper(Feedbacks, "");
+export default SectionWrapper(Feedbacks, "testimonials");
