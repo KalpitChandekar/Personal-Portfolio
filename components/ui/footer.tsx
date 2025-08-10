@@ -1,36 +1,59 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from "lucide-react";
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, url: 'https://github.com/KalpitChandekar', color: 'hover:text-white' },
-  { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/kalpit-chandekar', color: 'hover:text-blue-400' },
-  { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/kalpit_dev', color: 'hover:text-cyan-400' },
-  { name: 'Email', icon: Mail, url: 'mailto:kalpit@example.com', color: 'hover:text-neon-blue' },
+  {
+    name: "GitHub",
+    icon: Github,
+    url: "https://github.com/KalpitChandekar",
+    color: "hover:text-white",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/kalpit-chandekar-50a487255/",
+    color: "hover:text-blue-400",
+  },
+  {
+    name: "Twitter",
+    icon: Twitter,
+    url: "https://x.com/kalpitchandekar",
+    color: "hover:text-cyan-400",
+  },
+  {
+    name: "Email",
+    icon: Mail,
+    url: "mailto:kalpitchandekar1736@gmail.com",
+    color: "hover:text-neon-blue",
+  },
 ];
 
 const quickLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className="relative bg-gray-900/50 border-t border-white/10 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #00D2FF 0%, transparent 50%), 
-                           radial-gradient(circle at 75% 75%, #8B5CF6 0%, transparent 50%)`
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, #00D2FF 0%, transparent 50%), 
+                           radial-gradient(circle at 75% 75%, #8B5CF6 0%, transparent 50%)`,
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -46,13 +69,16 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-2xl font-poppins font-bold">
                 <span className="text-white">Kalpit </span>
-                <span className="text-transparent bg-clip-text bg-neon-gradient">Chandekar</span>
+                <span className="text-transparent bg-clip-text bg-neon-gradient">
+                  Chandekar
+                </span>
               </h3>
               <p className="text-gray-400 max-w-md leading-relaxed">
-                Frontend developer passionate about creating exceptional user experiences 
-                with modern web technologies. Always learning, always building.
+                Frontend developer passionate about creating exceptional user
+                experiences with modern web technologies. Always learning,
+                always building.
               </p>
-              
+
               {/* Social Links */}
               <div className="flex gap-4 pt-2">
                 {socialLinks.map((social, index) => (
@@ -91,7 +117,9 @@ export default function Footer() {
                     className="text-gray-400 hover:text-neon-blue transition-all duration-300 text-sm"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                      document
+                        .querySelector(link.href)
+                        ?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
                     {link.name}
@@ -112,11 +140,9 @@ export default function Footer() {
               Get In Touch
             </h4>
             <div className="space-y-3">
-              <p className="text-gray-400 text-sm">
-                Ready to work together?
-              </p>
+              <p className="text-gray-400 text-sm">Ready to work together?</p>
               <motion.a
-                href="mailto:kalpit@example.com"
+                href="mailto:kalpitchandekar1736@gmail.com"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-neon-gradient text-black text-sm font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/25"

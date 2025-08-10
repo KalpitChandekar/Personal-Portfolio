@@ -1,26 +1,34 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import Lottie from 'lottie-react';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Lottie from "lottie-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Simple contact animation data
 const contactAnimation = {
-  v: '5.7.1',
+  v: "5.7.1",
   fr: 30,
   ip: 0,
   op: 120,
   w: 400,
   h: 400,
-  nm: 'Contact',
+  nm: "Contact",
   ddd: 0,
   assets: [],
   layers: [
@@ -28,81 +36,137 @@ const contactAnimation = {
       ddd: 0,
       ind: 1,
       ty: 4,
-      nm: 'Envelope',
+      nm: "Envelope",
       sr: 1,
       ks: {
         o: { a: 0, k: 100 },
-        r: { a: 1, k: [
-          { i: { x: [0.833], y: [0.833] }, o: { x: [0.167], y: [0.167] }, t: 0, s: [0] },
-          { t: 60, s: [10] },
-          { t: 120, s: [0] }
-        ]},
-        p: { a: 1, k: [
-          { i: { x: 0.833, y: 0.833 }, o: { x: 0.167, y: 0.167 }, t: 0, s: [200, 200, 0] },
-          { t: 120, s: [200, 200, 0] }
-        ]},
-        s: { a: 1, k: [
-          { i: { x: [0.833], y: [0.833] }, o: { x: [0.167], y: [0.167] }, t: 0, s: [100, 100, 100] },
-          { t: 60, s: [110, 110, 100] },
-          { t: 120, s: [100, 100, 100] }
-        ]}
+        r: {
+          a: 1,
+          k: [
+            {
+              i: { x: [0.833], y: [0.833] },
+              o: { x: [0.167], y: [0.167] },
+              t: 0,
+              s: [0],
+            },
+            { t: 60, s: [10] },
+            { t: 120, s: [0] },
+          ],
+        },
+        p: {
+          a: 1,
+          k: [
+            {
+              i: { x: 0.833, y: 0.833 },
+              o: { x: 0.167, y: 0.167 },
+              t: 0,
+              s: [200, 200, 0],
+            },
+            { t: 120, s: [200, 200, 0] },
+          ],
+        },
+        s: {
+          a: 1,
+          k: [
+            {
+              i: { x: [0.833], y: [0.833] },
+              o: { x: [0.167], y: [0.167] },
+              t: 0,
+              s: [100, 100, 100],
+            },
+            { t: 60, s: [110, 110, 100] },
+            { t: 120, s: [100, 100, 100] },
+          ],
+        },
       },
       ao: 0,
       shapes: [
         {
-          ty: 'gr',
+          ty: "gr",
           it: [
             {
-              ty: 'rc',
+              ty: "rc",
               d: 1,
               s: { a: 0, k: [80, 60] },
               p: { a: 0, k: [0, 0] },
-              r: { a: 0, k: 8 }
+              r: { a: 0, k: 8 },
             },
             {
-              ty: 'fl',
+              ty: "fl",
               c: { a: 0, k: [0, 0.82, 1, 1] },
-              o: { a: 0, k: 100 }
-            }
-          ]
-        }
+              o: { a: 0, k: 100 },
+            },
+          ],
+        },
       ],
       ip: 0,
       op: 120,
       st: 0,
-      bm: 0
-    }
-  ]
+      bm: 0,
+    },
+  ],
 };
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, url: '#', color: 'text-gray-400 hover:text-white' },
-  { name: 'LinkedIn', icon: Linkedin, url: '#', color: 'text-blue-400 hover:text-blue-300' },
-  { name: 'Twitter', icon: Twitter, url: '#', color: 'text-cyan-400 hover:text-cyan-300' },
+  {
+    name: "GitHub",
+    icon: Github,
+    url: "https://github.com/KalpitChandekar",
+    color: "text-gray-400 hover:text-white",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/kalpit-chandekar-50a487255/",
+    color: "text-blue-400 hover:text-blue-300",
+  },
+  {
+    name: "Twitter",
+    icon: Twitter,
+    url: "https://x.com/kalpitchandekar",
+    color: "text-cyan-400 hover:text-cyan-300",
+  },
 ];
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'kalpit@example.com', href: 'mailto:kalpit@example.com' },
-  { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-  { icon: MapPin, label: 'Location', value: 'Remote / India', href: '#' },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "kalpitchandekar1736@gmail.com",
+    href: "mailto:kalpitchandekar1736@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 7057223445",
+    href: "tel:7057223445",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Remote / India, Nagpur",
+    href: "#",
+  },
 ];
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '.contact-item',
+        ".contact-item",
         {
           y: 60,
           opacity: 0,
@@ -112,11 +176,11 @@ export default function Contact() {
           opacity: 1,
           duration: 0.8,
           stagger: 0.2,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -125,25 +189,41 @@ export default function Contact() {
     return () => ctx.revert();
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
+      const emailjs = await import("@emailjs/browser");
+      await emailjs.default.send(
+        "service_xb440q3",
+        "template_1mm4rpy",
+        {
+          from_name: formData.name,
+          to_name: "Kalpit Chandekar",
+          from_email: formData.email,
+          to_email: "kalpitchandekar1736@gmail.com",
+          message: formData.message,
+        },
+        "JBPXLfowMaxsWT7rJ"
+      );
+
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 3000);
+      setSubmitStatus("success");
+      alert("Thank you. I will get back to you as soon as possible.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error: any) {
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+      console.error(error);
+      alert("Ahh, something went wrong. Please try again.");
     }
   };
 
@@ -155,7 +235,7 @@ export default function Contact() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-purple-900/10 to-blue-900/5" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -167,7 +247,9 @@ export default function Contact() {
         >
           <h2 className="text-4xl lg:text-5xl font-poppins font-bold mb-4">
             <span className="text-white">Get In </span>
-            <span className="text-transparent bg-clip-text bg-neon-gradient">Touch</span>
+            <span className="text-transparent bg-clip-text bg-neon-gradient">
+              Touch
+            </span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's discuss your next project
@@ -265,7 +347,10 @@ export default function Contact() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-400">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium text-gray-400"
+                  >
                     Full Name *
                   </label>
                   <Input
@@ -281,7 +366,10 @@ export default function Contact() {
                 </motion.div>
 
                 <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-400">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-gray-400"
+                  >
                     Email Address *
                   </label>
                   <Input
@@ -298,7 +386,10 @@ export default function Contact() {
               </div>
 
               <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium text-gray-400">
+                <label
+                  htmlFor="subject"
+                  className="text-sm font-medium text-gray-400"
+                >
                   Subject *
                 </label>
                 <Input
@@ -314,7 +405,10 @@ export default function Contact() {
               </motion.div>
 
               <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-400">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-gray-400"
+                >
                   Message *
                 </label>
                 <Textarea
@@ -354,7 +448,7 @@ export default function Contact() {
 
               {/* Status Messages */}
               <AnimatePresence>
-                {submitStatus === 'success' && (
+                {submitStatus === "success" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -364,7 +458,7 @@ export default function Contact() {
                     Message sent successfully! I'll get back to you soon.
                   </motion.div>
                 )}
-                {submitStatus === 'error' && (
+                {submitStatus === "error" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
