@@ -1,43 +1,58 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
     id: 1,
-    title: 'Frontend Developer',
-    company: 'Salk AI',
-    location: 'Remote',
-    period: 'June 2023 – Present',
-    description: 'Leading UI development and component architecture, implementing responsive designs, and collaborating with cross-functional teams to deliver user-centric solutions.',
+    title: "Frontend Developer",
+    company: "Salk AI",
+    location: "Remote",
+    period: "Jan 2025 – Present",
+    description:
+      "Leading UI development and component architecture, implementing responsive designs, and collaborating with cross-functional teams to deliver user-centric solutions.",
     responsibilities: [
-      'Developed and maintained responsive web applications using React and TypeScript',
-      'Implemented modern UI/UX designs with attention to accessibility and performance',
-      'Collaborated with design and backend teams to integrate APIs and enhance user experience',
-      'Optimized component architecture for scalability and maintainability',
+      "Developed and maintained responsive web applications using React and TypeScript",
+      "Implemented modern UI/UX designs with attention to accessibility and performance",
+      "Collaborated with design and backend teams to integrate APIs and enhance user experience",
+      "Optimized component architecture for scalability and maintainability",
     ],
-    technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'JavaScript'],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Git",
+    ],
   },
   {
     id: 2,
-    title: 'Frontend Developer',
-    company: 'Previous Company',
-    location: 'Remote',
-    period: 'Jan 2022 – May 2023',
-    description: 'Focused on building interactive web interfaces and enhancing user experience across multiple projects.',
+    title: "Frontend Developer",
+    company: "Salk AI",
+    location: "Remote",
+    period: "Jan 2024 - Jun 2024",
+    description:
+      "Focused on building interactive web interfaces and enhancing user experience across multiple projects.",
     responsibilities: [
-      'Built responsive web applications using modern JavaScript frameworks',
-      'Worked closely with designers to implement pixel-perfect UI components',
-      'Improved application performance and implemented best practices',
-      'Mentored junior developers and conducted code reviews',
+      "Built responsive web applications using modern JavaScript frameworks",
+      "Worked closely with designers to implement pixel-perfect UI components",
+      "Improved application performance and implemented best practices",
+      "Mentored junior developers and conducted code reviews",
     ],
-    technologies: ['JavaScript', 'React', 'CSS3', 'HTML5', 'Git'],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "TypeScript",
+      "JavaScript",
+    ],
   },
 ];
 
@@ -49,7 +64,7 @@ export default function Experience() {
     const ctx = gsap.context(() => {
       // Animate timeline items
       gsap.fromTo(
-        '.timeline-item',
+        ".timeline-item",
         {
           x: -100,
           opacity: 0,
@@ -59,29 +74,29 @@ export default function Experience() {
           opacity: 1,
           duration: 0.8,
           stagger: 0.3,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
         }
       );
 
       // Animate timeline line
       gsap.fromTo(
-        '.timeline-line',
+        ".timeline-line",
         {
           scaleY: 0,
         },
         {
           scaleY: 1,
           duration: 1.5,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: timelineRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -98,7 +113,7 @@ export default function Experience() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-l from-purple-900/5 to-blue-900/5" />
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -110,7 +125,9 @@ export default function Experience() {
         >
           <h2 className="text-4xl lg:text-5xl font-poppins font-bold mb-4">
             <span className="text-white">My </span>
-            <span className="text-transparent bg-clip-text bg-neon-gradient">Experience</span>
+            <span className="text-transparent bg-clip-text bg-neon-gradient">
+              Experience
+            </span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             A journey through my professional development and key contributions
@@ -133,14 +150,18 @@ export default function Experience() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 className={`timeline-item relative flex items-center ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-neon-gradient rounded-full border-4 border-gray-900 z-10" />
 
                 {/* Content Card */}
-                <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                <div
+                  className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                    index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
+                  }`}
+                >
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     transition={{ duration: 0.3 }}
@@ -179,7 +200,10 @@ export default function Experience() {
                     {/* Responsibilities */}
                     <ul className="space-y-2 mb-6">
                       {exp.responsibilities.map((responsibility, idx) => (
-                        <li key={idx} className="text-sm text-gray-400 flex items-start gap-2">
+                        <li
+                          key={idx}
+                          className="text-sm text-gray-400 flex items-start gap-2"
+                        >
                           <span className="w-1.5 h-1.5 bg-neon-blue rounded-full mt-2 flex-shrink-0" />
                           <span>{responsibility}</span>
                         </li>

@@ -163,7 +163,7 @@ export default function Footer() {
           className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-2 text-gray-400 text-sm">
-            <span>© 2024 Kalpit Chandekar. Made with</span>
+            <span>© 2025 Kalpit Chandekar. Made with</span>
             <Heart className="w-4 h-4 text-red-400 fill-current" />
             <span>and lots of ☕</span>
           </div>
