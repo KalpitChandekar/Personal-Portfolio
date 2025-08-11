@@ -52,17 +52,8 @@ export default function Hero() {
         }
       );
 
-      // Parallax effect on scroll
-      gsap.to(heroRef.current, {
-        yPercent: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Removed parallax that translated the entire hero section to avoid creating a gap
+      // Previously: gsap.to(heroRef.current, { yPercent: -50, scrollTrigger: { ... } })
     });
 
     return () => ctx.revert();
