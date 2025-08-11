@@ -56,6 +56,9 @@ export const metadata: Metadata = {
   verification: {
     google: "verification_token_here",
   },
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
