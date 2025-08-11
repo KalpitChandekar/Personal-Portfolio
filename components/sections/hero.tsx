@@ -51,9 +51,6 @@ export default function Hero() {
           ease: "power3.out",
         }
       );
-
-      // Removed parallax that translated the entire hero section to avoid creating a gap
-      // Previously: gsap.to(heroRef.current, { yPercent: -50, scrollTrigger: { ... } })
     });
 
     return () => ctx.revert();
