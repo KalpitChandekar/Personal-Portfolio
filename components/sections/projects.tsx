@@ -11,22 +11,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    id: 0,
+    title: "ShopSphere - E-commerce Platform",
+    description:
+      "ShopSphere is a modern ecommerce website built for practicing frontend development. It features a clean UI, responsive design, and a seamless shopping experience for browsing, adding to cart, and checkout.",
+    image: "/projects/shopsphere.png",
+    technologies: ["TypeScript", "NextJS", "Stripe API", "TailwindCSS"],
+    liveUrl: "https://shop-sphere-ecommerce-three.vercel.app/",
+    githubUrl: "https://github.com/KalpitChandekar/ShopSphere-Ecommerce",
+    featured: true,
+  },
+  {
     id: 1,
+    title: "World Explorer",
+    description:
+      "World Explorer is an interactive web application that allows users to explore detailed information about every country in the world. From capitals, regions, and population to flags, currencies, and geography, the app makes discovering countries simple and engaging.",
+    image: "/projects/world-explorer.png",
+    technologies: ["TypeScript", "React", "REST API", "TailwindCSS"],
+    liveUrl: "https://world-explorer-olive.vercel.app/",
+    githubUrl: "https://github.com/KalpitChandekar/World-Explorer",
+    featured: true,
+  },
+  {
+    id: 2,
     title: "TaskFlow - Project Manager",
     description:
       "A comprehensive project management application with task tracking, team collaboration, and real-time updates. Built with modern TypeScript and responsive design.",
     image:
       "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
     technologies: ["TypeScript", "React", "Node.js", "MongoDB"],
-    liveUrl: "https://github.com/KalpitChandekar/TaskFlow__Project-Manager",
+    liveUrl: "https://taskflow-kalpit.netlify.app/",
     githubUrl: "https://github.com/KalpitChandekar/TaskFlow__Project-Manager",
     featured: true,
   },
   {
-    id: 2,
-    title: "User MongoDB System",
+    id: 3,
+    title: "User Login System",
     description:
-      "A full-stack user management system with authentication, CRUD operations, and database integration. Features secure user registration and profile management.",
+      "A practice project focused on building a user login system with basic authentication and profile management. Created to learn and experiment with authentication workflows and CRUD operations.",
     image:
       "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600",
     technologies: ["JavaScript", "MongoDB", "Express.js", "Node.js"],
@@ -35,75 +57,60 @@ const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Metaverse Experience",
     description:
       "An immersive VR/metaverse-themed project showcasing cutting-edge 3D interactions and modern web technologies with TypeScript.",
     image:
       "https://images.pexels.com/photos/8728382/pexels-photo-8728382.jpeg?auto=compress&cs=tinysrgb&w=600",
     technologies: ["TypeScript", "Three.js", "WebGL", "React"],
-    liveUrl: "https://github.com/KalpitChandekar/Metaverse",
+    liveUrl: "https://metaverse-one-blond.vercel.app/",
     githubUrl: "https://github.com/KalpitChandekar/Metaverse",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "Magma Interactive",
-    description:
-      "A creative web application featuring HTML5 Canvas animations and GSAP interactions. Demonstrates advanced animation techniques and user engagement.",
-    image:
-      "https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=600",
-    technologies: ["JavaScript", "HTML5 Canvas", "GSAP", "CSS3"],
-    liveUrl: "https://github.com/KalpitChandekar/Magma",
-    githubUrl: "https://github.com/KalpitChandekar/Magma",
-    featured: false,
   },
   {
     id: 5,
-    title: "Quiz Application",
-    description:
-      "An interactive quiz application with dynamic questions, scoring system, and responsive design. Perfect for educational and entertainment purposes.",
-    image:
-      "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=600",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
-    liveUrl: "https://github.com/KalpitChandekar/Quize-App",
-    githubUrl: "https://github.com/KalpitChandekar/Quize-App",
-    featured: false,
-  },
-  {
-    id: 6,
     title: "Tic-Tac-Toe",
     description:
       "A classic game reimagined with modern UI design and smart game logic. Features smooth animations and an engaging user experience.",
     image:
       "https://images.pexels.com/photos/278888/pexels-photo-278888.jpeg?auto=compress&cs=tinysrgb&w=600",
     technologies: ["JavaScript", "CSS3", "HTML5", "Game Logic"],
-    liveUrl: "https://github.com/KalpitChandekar/Tic-Tac-Toe",
+    liveUrl: "https://tictactoekc.netlify.app/",
     githubUrl: "https://github.com/KalpitChandekar/Tic-Tac-Toe",
-    featured: false,
   },
   {
-    id: 7,
+    id: 6,
     title: "Drum Kit Interactive",
     description:
       "A fun and interactive drum kit web application created with vanilla JavaScript. Play different drum sounds with keyboard or mouse interactions.",
     image:
       "https://images.pexels.com/photos/164743/pexels-photo-164743.jpeg?auto=compress&cs=tinysrgb&w=600",
     technologies: ["JavaScript", "HTML5", "CSS3", "Audio API"],
-    liveUrl: "https://github.com/KalpitChandekar/Drum-Kit",
+    liveUrl: "https://drum-kit-kc.netlify.app/",
     githubUrl: "https://github.com/KalpitChandekar/Drum-Kit",
     featured: false,
   },
   {
-    id: 8,
+    id: 7,
     title: "Sidcup Family Golf",
     description:
       "A beautiful and responsive website for a family golf club, showcasing modern web design principles and smooth user interactions.",
     image:
       "https://images.pexels.com/photos/1325735/pexels-photo-1325735.jpeg?auto=compress&cs=tinysrgb&w=600",
     technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    liveUrl: "https://github.com/KalpitChandekar/sidcup-family-golf",
+    liveUrl: "https://sidcupfamilygolfkc.netlify.app/",
     githubUrl: "https://github.com/KalpitChandekar/sidcup-family-golf",
+  },
+  {
+    id: 8,
+    title: "Magma Interactive",
+    description:
+      "A creative web application featuring HTML5 Canvas animations and GSAP interactions. Demonstrates advanced animation techniques and user engagement.",
+    image:
+      "https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=600",
+    technologies: ["JavaScript", "HTML5 Canvas", "GSAP", "CSS3"],
+    liveUrl: "https://magmakc.netlify.app/",
+    githubUrl: "https://github.com/KalpitChandekar/Magma",
     featured: false,
   },
 ];
@@ -184,9 +191,7 @@ export default function Projects() {
                 scale: 1.02,
               }}
               whileTap={{ scale: 0.98 }}
-              className={`project-card group relative overflow-hidden rounded-2xl glass-effect border border-white/10 hover:border-neon-blue/30 transition-all duration-500 ${
-                project.featured && index === 0 ? "lg:col-span-2" : ""
-              }`}
+              className={`project-card group relative overflow-hidden rounded-2xl glass-effect border border-white/10 hover:border-neon-blue/30 transition-all duration-500`}
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
