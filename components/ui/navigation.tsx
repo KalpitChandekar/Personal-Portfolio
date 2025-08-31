@@ -13,6 +13,7 @@ import {
   Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const navItems = [
   { name: "Home", href: "#hero", icon: Home },
@@ -75,7 +76,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             className="font-poppins text-xl font-bold text-transparent bg-clip-text bg-neon-gradient cursor-pointer"
           >
-            KC
+            <Image src="/favicon.svg" alt="Logo" width={35} height={35} />
           </motion.div>
 
           {/* Desktop Navigation */}
