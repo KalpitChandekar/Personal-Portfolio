@@ -10,7 +10,6 @@ import {
   Float,
 } from "@react-three/drei";
 import { ChevronDown, Code, Palette, Zap } from "lucide-react";
-import { gsap } from "gsap";
 
 function AnimatedSphere() {
   return (
@@ -31,30 +30,7 @@ function AnimatedSphere() {
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate hero text on load
-      gsap.fromTo(
-        textRef.current?.children || [],
-        {
-          y: 100,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          stagger: 0.2,
-          ease: "power3.out",
-        }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -135,7 +111,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
           {/* Left Content */}
-          <motion.div ref={textRef} className="space-y-8 lg:pr-8">
+          <motion.div className="space-y-8 lg:pr-8">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
