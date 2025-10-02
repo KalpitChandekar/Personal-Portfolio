@@ -1,30 +1,39 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  { name: 'HTML5', level: 95, icon: '🌐', category: 'Frontend' },
-  { name: 'CSS3', level: 90, icon: '🎨', category: 'Frontend' },
-  { name: 'JavaScript', level: 92, icon: '⚡', category: 'Frontend' },
-  { name: 'TypeScript', level: 88, icon: '📘', category: 'Frontend' },
-  { name: 'React', level: 94, icon: '⚛️', category: 'Frontend' },
-  { name: 'Next.js', level: 90, icon: '▲', category: 'Framework' },
-  { name: 'Tailwind CSS', level: 95, icon: '💨', category: 'Styling' },
-  { name: 'Bootstrap', level: 85, icon: '🅱️', category: 'Styling' },
-  { name: 'Sass', level: 88, icon: '💎', category: 'Styling' },
-  { name: 'Node.js', level: 85, icon: '🟢', category: 'Backend' },
-  { name: 'Express.js', level: 82, icon: '🚀', category: 'Backend' },
-  { name: 'MongoDB', level: 80, icon: '🍃', category: 'Database' },
-  { name: 'Git', level: 88, icon: '🔧', category: 'Tools' },
-  { name: 'Figma', level: 80, icon: '🎯', category: 'Design' },
+  { name: "HTML5", level: 95, icon: "🌐", category: "Frontend" },
+  { name: "CSS3", level: 90, icon: "🎨", category: "Frontend" },
+  { name: "JavaScript", level: 92, icon: "⚡", category: "Frontend" },
+  { name: "TypeScript", level: 88, icon: "📘", category: "Frontend" },
+  { name: "React", level: 94, icon: "⚛️", category: "Frontend" },
+  { name: "Next.js", level: 90, icon: "▲", category: "Framework" },
+  { name: "Tailwind CSS", level: 95, icon: "💨", category: "Styling" },
+  { name: "Bootstrap", level: 85, icon: "🅱️", category: "Styling" },
+  { name: "Sass", level: 88, icon: "💎", category: "Styling" },
+  { name: "Node.js", level: 70, icon: "🟢", category: "Backend" },
+  { name: "Express.js", level: 65, icon: "🚀", category: "Backend" },
+  { name: "MongoDB", level: 80, icon: "🍃", category: "Database" },
+  { name: "Git", level: 88, icon: "🔧", category: "Tools" },
+  { name: "Figma", level: 80, icon: "🎯", category: "Design" },
 ];
 
-const categories = ['All', 'Frontend', 'Framework', 'Styling', 'Backend', 'Database', 'Tools', 'Design'];
+const categories = [
+  "All",
+  "Frontend",
+  "Framework",
+  "Styling",
+  "Backend",
+  "Database",
+  "Tools",
+  "Design",
+];
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,7 +43,7 @@ export default function Skills() {
     const ctx = gsap.context(() => {
       // Animate skill cards
       gsap.fromTo(
-        '.skill-card',
+        ".skill-card",
         {
           y: 60,
           opacity: 0,
@@ -46,18 +55,18 @@ export default function Skills() {
           scale: 1,
           duration: 0.6,
           stagger: 0.1,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: skillsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
         }
       );
 
       // Animate skill bars
       gsap.fromTo(
-        '.skill-bar',
+        ".skill-bar",
         {
           scaleX: 0,
         },
@@ -65,11 +74,11 @@ export default function Skills() {
           scaleX: 1,
           duration: 1.2,
           stagger: 0.1,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: skillsRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none reverse',
+            start: "top 70%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -86,7 +95,7 @@ export default function Skills() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/5 to-purple-900/5" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -98,7 +107,9 @@ export default function Skills() {
         >
           <h2 className="text-4xl lg:text-5xl font-poppins font-bold mb-4">
             <span className="text-white">My </span>
-            <span className="text-transparent bg-clip-text bg-neon-gradient">Skills</span>
+            <span className="text-transparent bg-clip-text bg-neon-gradient">
+              Skills
+            </span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
@@ -107,21 +118,24 @@ export default function Skills() {
         </motion.div>
 
         {/* Skills Grid */}
-        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          ref={skillsRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotateY: 5,
-                boxShadow: '0 20px 40px rgba(0, 210, 255, 0.2)',
+                boxShadow: "0 20px 40px rgba(0, 210, 255, 0.2)",
               }}
               whileTap={{ scale: 0.95 }}
               className="skill-card glass-effect rounded-xl p-6 border border-white/10 hover:border-neon-blue/30 transition-all duration-300 group relative overflow-hidden"
             >
               {/* Background Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="relative z-10">
                 {/* Skill Header */}
                 <div className="flex items-center justify-between mb-4">
@@ -149,7 +163,7 @@ export default function Skills() {
                       style={{ width: `${skill.level}%` }}
                     />
                   </div>
-                  
+
                   {/* Animated Glow */}
                   <motion.div
                     className="absolute inset-0 bg-neon-gradient rounded-full opacity-0 blur-sm"
@@ -201,10 +215,10 @@ export default function Skills() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { label: 'Frontend Frameworks', count: '5+' },
-              { label: 'Design Tools', count: '3+' },
-              { label: 'Years Experience', count: '2+' },
-              { label: 'Projects Delivered', count: '10+' },
+              { label: "Frontend Frameworks", count: "5+" },
+              { label: "Design Tools", count: "3+" },
+              { label: "Years Experience", count: "2+" },
+              { label: "Projects Delivered", count: "10+" },
             ].map((stat, index) => (
               <motion.div
                 key={index}

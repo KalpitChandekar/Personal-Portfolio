@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,9 +13,37 @@ const experiences = [
   {
     id: 1,
     title: "Frontend Developer",
-    company: "Salk AI",
+    company: "BugCure",
+    companyLink: "https://www.linkedin.com/company/bugcuredigital/",
     location: "Remote",
-    period: "Jan 2025 – Present",
+    period: "Sep 2025 – Present",
+    description:
+      "Driving the frontend strategy and building high-performing, scalable web applications with modern technologies while ensuring seamless user experiences.",
+    responsibilities: [
+      "Architected reusable component libraries and design systems to standardize UI across projects",
+      "Implemented advanced state management and optimized rendering for performance at scale",
+      "Collaborated with product managers and designers to deliver pixel-perfect, user-friendly solutions",
+      "Integrated APIs and ensured robust error handling and security best practices",
+      "Improved build performance and reduced bundle size through code-splitting and lazy loading",
+    ],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "Figma",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "GitHub",
+      "API Integration",
+    ],
+  },
+  {
+    id: 2,
+    title: "Frontend Developer",
+    company: "Salk AI",
+    companyLink: "https://salk.ai/",
+    location: "Remote",
+    period: "Jan 2025 – July 2025",
     description:
       "Leading UI development and component architecture, implementing responsive designs, and collaborating with cross-functional teams to deliver user-centric solutions.",
     responsibilities: [
@@ -33,9 +62,10 @@ const experiences = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Frontend Developer",
     company: "Salk AI",
+    companyLink: "https://salk.ai/",
     location: "Remote",
     period: "Jan 2024 - Jun 2024",
     description:
@@ -174,7 +204,13 @@ export default function Experience() {
                           {exp.title}
                         </h3>
                         <h4 className="text-lg text-neon-blue font-medium mb-2">
-                          {exp.company}
+                          <Link
+                            href={exp.companyLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {exp.company}
+                          </Link>
                         </h4>
                       </div>
                       <Briefcase className="w-6 h-6 text-neon-purple ml-4 flex-shrink-0" />

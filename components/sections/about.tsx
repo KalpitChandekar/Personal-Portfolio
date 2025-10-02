@@ -1,44 +1,44 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code2, Lightbulb, Users, Target, Rocket, Heart } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Code2, Lightbulb, Users, Target, Rocket, Heart } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const values = [
   {
     icon: Code2,
-    title: 'Clean Code',
-    description: 'Writing maintainable, scalable, and efficient code'
+    title: "Clean Code",
+    description: "Writing maintainable, scalable, and efficient code",
   },
   {
     icon: Lightbulb,
-    title: 'Innovation',
-    description: 'Always exploring new technologies and creative solutions'
+    title: "Innovation",
+    description: "Always exploring new technologies and creative solutions",
   },
   {
     icon: Users,
-    title: 'Collaboration',
-    description: 'Working effectively with cross-functional teams'
+    title: "Collaboration",
+    description: "Working effectively with cross-functional teams",
   },
   {
     icon: Target,
-    title: 'User-Focused',
-    description: 'Creating experiences that solve real user problems'
+    title: "User-Focused",
+    description: "Creating experiences that solve real user problems",
   },
   {
     icon: Rocket,
-    title: 'Performance',
-    description: 'Optimizing for speed, accessibility, and SEO'
+    title: "Performance",
+    description: "Optimizing for speed, accessibility, and SEO",
   },
   {
     icon: Heart,
-    title: 'Passion',
-    description: 'Genuinely love what I do and continuous learning'
-  }
+    title: "Passion",
+    description: "Genuinely love what I do and continuous learning",
+  },
 ];
 
 export default function About() {
@@ -50,9 +50,9 @@ export default function About() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -67,7 +67,7 @@ export default function About() {
           opacity: 1,
           duration: 0.8,
           stagger: 0.2,
-          ease: 'power3.out',
+          ease: "power3.out",
         }
       );
     }, sectionRef);
@@ -83,9 +83,12 @@ export default function About() {
     >
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 to-blue-900/10" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div
+          ref={contentRef}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+        >
           {/* Content */}
           <div className="space-y-8">
             <motion.div
@@ -96,7 +99,9 @@ export default function About() {
             >
               <h2 className="text-4xl lg:text-5xl font-poppins font-bold">
                 <span className="text-white">About </span>
-                <span className="text-transparent bg-clip-text bg-neon-gradient">Me</span>
+                <span className="text-transparent bg-clip-text bg-neon-gradient">
+                  Me
+                </span>
               </h2>
               <div className="w-20 h-1 bg-neon-gradient rounded-full mt-4" />
             </motion.div>
@@ -109,16 +114,23 @@ export default function About() {
               className="space-y-6"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a frontend developer with experience in{' '}
-                <span className="text-neon-blue font-semibold">JavaScript</span> and{' '}
-                <span className="text-neon-purple font-semibold">TypeScript</span>, proficient in 
-                frameworks like React, Next.js, and styled with CSS.
+                I'm a frontend developer with experience in{" "}
+                <span className="text-neon-blue font-semibold">Next.js</span>{" "}
+                and{" "}
+                <span className="text-neon-purple font-semibold">
+                  Tailwind CSS
+                </span>
+                , with strong experience in React.js, JavaScript and TypeScript
+                for building modern, scalable web applications.
               </p>
-              
+
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a quick learner and collaborator, focused on creating{' '}
-                <span className="text-neon-blue font-semibold">user-friendly solutions</span>{' '}
-                that solve real-world problems. Let's work together to bring your ideas to life!
+                I'm a quick learner and collaborator, focused on creating{" "}
+                <span className="text-neon-blue font-semibold">
+                  user-friendly solutions
+                </span>{" "}
+                that solve real-world problems. Let's work together to bring
+                your ideas to life!
               </p>
             </motion.div>
 
@@ -130,10 +142,10 @@ export default function About() {
               className="grid grid-cols-2 gap-6"
             >
               {[
-                { number: '2+', label: 'Years Experience' },
-                { number: '10+', label: 'Projects Completed' },
-                { number: '5+', label: 'Technologies' },
-                { number: '100%', label: 'Client Satisfaction' },
+                { number: "2+", label: "Years Experience" },
+                { number: "10+", label: "Projects Completed" },
+                { number: "5+", label: "Technologies" },
+                { number: "100%", label: "Client Satisfaction" },
               ].map((stat, index) => (
                 <div
                   key={index}
@@ -164,10 +176,10 @@ export default function About() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     rotateY: 5,
-                    boxShadow: '0 10px 30px rgba(0, 210, 255, 0.2)'
+                    boxShadow: "0 10px 30px rgba(0, 210, 255, 0.2)",
                   }}
                   viewport={{ once: true }}
                   className="glass-effect p-4 rounded-xl border border-white/10 hover:border-neon-blue/30 transition-all duration-300 group cursor-pointer"
@@ -191,7 +203,13 @@ export default function About() {
             <div className="absolute inset-0 pointer-events-none">
               <svg className="w-full h-full opacity-20">
                 <defs>
-                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="lineGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#00D2FF" />
                     <stop offset="100%" stopColor="#8B5CF6" />
                   </linearGradient>
