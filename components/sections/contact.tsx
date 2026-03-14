@@ -152,6 +152,9 @@ const contactInfo = [
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const emailServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const emailTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const emailPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -199,31 +202,37 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+      return;
+    }
 
     try {
       const emailjs = await import("@emailjs/browser");
       await emailjs.default.send(
-        "service_xb440q3",
-        "template_1mm4rpy",
+        emailServiceId,
+        emailTemplateId,
         {
           from_name: formData.name,
           to_name: "Kalpit Chandekar",
           from_email: formData.email,
           to_email: "kalpitchandekar1736@gmail.com",
+          subject: formData.subject,
           message: formData.message,
         },
-        "JBPXLfowMaxsWT7rJ"
+        emailPublicKey
       );
 
       setIsSubmitting(false);
       setSubmitStatus("success");
-      alert("Thank you. I will get back to you as soon as possible.");
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error: any) {
       setIsSubmitting(false);
       setSubmitStatus("error");
       console.error(error);
-      alert("Ahh, something went wrong. Please try again.");
     }
   };
 
@@ -344,6 +353,10 @@ export default function Contact() {
               <h3 className="text-2xl font-poppins font-semibold text-white mb-6">
                 Send me a message
               </h3>
+              <p className="text-sm text-gray-400 -mt-2">
+                Best for freelance, product, or frontend engineering
+                opportunities.
+              </p>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
@@ -455,7 +468,7 @@ export default function Contact() {
                     exit={{ opacity: 0, y: -10 }}
                     className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-center"
                   >
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully. I&apos;ll get back to you soon.
                   </motion.div>
                 )}
                 {submitStatus === "error" && (
@@ -465,7 +478,8 @@ export default function Contact() {
                     exit={{ opacity: 0, y: -10 }}
                     className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-center"
                   >
-                    Something went wrong. Please try again.
+                    Something went wrong. If the form is unavailable, contact me
+                    directly by email.
                   </motion.div>
                 )}
               </AnimatePresence>

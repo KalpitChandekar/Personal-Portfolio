@@ -16,24 +16,22 @@ const experiences = [
     company: "BugCure",
     companyLink: "https://www.linkedin.com/company/bugcuredigital/",
     location: "Remote",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 - Feb 2026",
     description:
-      "Driving the frontend strategy and building high-performing, scalable web applications with modern technologies while ensuring seamless user experiences.",
+      "Owned frontend delivery for product-facing interfaces, focusing on reusable UI systems, performance-aware implementation, and maintainable React architecture.",
     responsibilities: [
-      "Architected reusable component libraries and design systems to standardize UI across projects",
-      "Implemented advanced state management and optimized rendering for performance at scale",
-      "Collaborated with product managers and designers to deliver pixel-perfect, user-friendly solutions",
-      "Integrated APIs and ensured robust error handling and security best practices",
-      "Improved build performance and reduced bundle size through code-splitting and lazy loading",
+      "Built reusable components and interface patterns that improved consistency across product surfaces",
+      "Optimized rendering behavior and frontend structure for smoother interactions in larger interfaces",
+      "Collaborated with product and design teams to translate requirements into polished, production-ready UI",
+      "Integrated APIs with stronger handling for loading, empty, and error states",
+      "Improved implementation quality through cleaner component boundaries and lighter page composition",
     ],
     technologies: [
       "Next.js",
-      "Tailwind CSS",
-      "Figma",
       "React",
       "TypeScript",
-      "JavaScript",
-      "GitHub",
+      "Tailwind CSS",
+      "Figma",
       "API Integration",
     ],
   },
@@ -43,21 +41,20 @@ const experiences = [
     company: "Salk AI",
     companyLink: "https://salk.ai/",
     location: "Remote",
-    period: "Jan 2025 – July 2025",
+    period: "Jan 2025 - Jul 2025",
     description:
-      "Leading UI development and component architecture, implementing responsive designs, and collaborating with cross-functional teams to deliver user-centric solutions.",
+      "Contributed to product UI delivery with a focus on scalable components, responsive implementation, and strong collaboration across design and backend teams.",
     responsibilities: [
-      "Developed and maintained responsive web applications using React and TypeScript",
-      "Implemented modern UI/UX designs with attention to accessibility and performance",
-      "Collaborated with design and backend teams to integrate APIs and enhance user experience",
-      "Optimized component architecture for scalability and maintainability",
+      "Developed responsive product interfaces using React, TypeScript, and modern frontend tooling",
+      "Implemented UI with attention to accessibility, responsiveness, and interaction quality",
+      "Worked with backend and design stakeholders to ship API-driven features",
+      "Improved maintainability by organizing components around reuse instead of page-specific duplication",
     ],
     technologies: [
       "Next.js",
-      "Tailwind CSS",
       "React",
       "TypeScript",
-      "JavaScript",
+      "Tailwind CSS",
       "Git",
     ],
   },
@@ -69,20 +66,14 @@ const experiences = [
     location: "Remote",
     period: "Jan 2024 - Jun 2024",
     description:
-      "Focused on building interactive web interfaces and enhancing user experience across multiple projects.",
+      "Built interactive frontend experiences and improved implementation quality across multiple web projects.",
     responsibilities: [
-      "Built responsive web applications using modern JavaScript frameworks",
-      "Worked closely with designers to implement pixel-perfect UI components",
-      "Improved application performance and implemented best practices",
-      "Mentored junior developers and conducted code reviews",
+      "Built responsive web interfaces with modern React-based workflows",
+      "Translated designs into clean, reusable UI components",
+      "Improved page behavior and frontend quality with better implementation practices",
+      "Supported teammates through review feedback and collaboration",
     ],
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "React",
-      "TypeScript",
-      "JavaScript",
-    ],
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
   },
 ];
 
@@ -92,7 +83,6 @@ export default function Experience() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate timeline items
       gsap.fromTo(
         ".timeline-item",
         {
@@ -113,7 +103,6 @@ export default function Experience() {
         }
       );
 
-      // Animate timeline line
       gsap.fromTo(
         ".timeline-line",
         {
@@ -141,11 +130,9 @@ export default function Experience() {
       ref={sectionRef}
       className="py-20 lg:py-32 relative overflow-hidden"
     >
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-l from-purple-900/5 to-blue-900/5" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -154,23 +141,22 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-poppins font-bold mb-4">
-            <span className="text-white">My </span>
+            <span className="text-white">Product </span>
             <span className="text-transparent bg-clip-text bg-neon-gradient">
               Experience
             </span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A journey through my professional development and key contributions
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Roles where I focused on shipping frontend interfaces, building
+            reusable UI, collaborating across functions, and improving
+            implementation quality over time.
           </p>
           <div className="w-20 h-1 bg-neon-gradient rounded-full mx-auto mt-6" />
         </motion.div>
 
-        {/* Timeline */}
         <div ref={timelineRef} className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neon-blue to-neon-purple timeline-line origin-top" />
 
-          {/* Timeline Items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
@@ -183,10 +169,8 @@ export default function Experience() {
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Timeline Dot */}
                 <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-neon-gradient rounded-full border-4 border-gray-900 z-10" />
 
-                {/* Content Card */}
                 <div
                   className={`w-full md:w-5/12 ml-16 md:ml-0 ${
                     index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
@@ -197,7 +181,6 @@ export default function Experience() {
                     transition={{ duration: 0.3 }}
                     className="glass-effect rounded-xl p-6 border border-white/10 hover:border-neon-blue/30 transition-all duration-300"
                   >
-                    {/* Company & Role */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <h3 className="text-xl font-poppins font-semibold text-white mb-1">
@@ -216,7 +199,6 @@ export default function Experience() {
                       <Briefcase className="w-6 h-6 text-neon-purple ml-4 flex-shrink-0" />
                     </div>
 
-                    {/* Meta Info */}
                     <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
@@ -228,16 +210,14 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    {/* Description */}
                     <p className="text-gray-300 mb-4 leading-relaxed">
                       {exp.description}
                     </p>
 
-                    {/* Responsibilities */}
                     <ul className="space-y-2 mb-6">
-                      {exp.responsibilities.map((responsibility, idx) => (
+                      {exp.responsibilities.map((responsibility) => (
                         <li
-                          key={idx}
+                          key={responsibility}
                           className="text-sm text-gray-400 flex items-start gap-2"
                         >
                           <span className="w-1.5 h-1.5 bg-neon-blue rounded-full mt-2 flex-shrink-0" />
@@ -246,11 +226,10 @@ export default function Experience() {
                       ))}
                     </ul>
 
-                    {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, idx) => (
+                      {exp.technologies.map((tech) => (
                         <span
-                          key={idx}
+                          key={tech}
                           className="px-3 py-1 text-xs font-medium bg-neon-blue/10 text-neon-blue rounded-full border border-neon-blue/20"
                         >
                           {tech}
@@ -260,7 +239,6 @@ export default function Experience() {
                   </motion.div>
                 </div>
 
-                {/* Spacer for desktop layout */}
                 <div className="hidden md:block w-2/12" />
               </motion.div>
             ))}

@@ -162,9 +162,9 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center md:text-left text-gray-400 text-sm max-w-xs sm:max-w-none">
             <span>© 2025 Kalpit Chandekar. Made with</span>
-            <Heart className="w-4 h-4 text-red-400 fill-current" />
+            <Heart className="w-4 h-4 text-red-400 fill-current shrink-0" />
             <span>and lots of ☕</span>
           </div>
 

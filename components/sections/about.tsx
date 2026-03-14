@@ -114,23 +114,29 @@ export default function About() {
               className="space-y-6"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a frontend developer with experience in{" "}
+                I'm a frontend developer with hands-on experience in{" "}
                 <span className="text-neon-blue font-semibold">Next.js</span>{" "}
                 and{" "}
                 <span className="text-neon-purple font-semibold">
                   Tailwind CSS
                 </span>
-                , with strong experience in React.js, JavaScript and TypeScript
-                for building modern, scalable web applications.
+                , with strong experience in React.js, JavaScript, and
+                TypeScript for building maintainable, responsive, and
+                product-focused web applications.
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a quick learner and collaborator, focused on creating{" "}
+                I work best where product thinking and frontend engineering meet
+                together. I'm focused on creating{" "}
                 <span className="text-neon-blue font-semibold">
                   user-friendly solutions
                 </span>{" "}
-                that solve real-world problems. Let's work together to bring
-                your ideas to life!
+                that solve real-world problems. I also use{" "}
+                <span className="text-neon-purple font-semibold">
+                  AI tools thoughtfully
+                </span>{" "}
+                to speed up research, improve development workflows, and
+                prototype faster while keeping implementation quality high.
               </p>
             </motion.div>
 
@@ -142,10 +148,10 @@ export default function About() {
               className="grid grid-cols-2 gap-6"
             >
               {[
-                { number: "2+", label: "Years Experience" },
-                { number: "10+", label: "Projects Completed" },
-                { number: "5+", label: "Technologies" },
-                { number: "100%", label: "Client Satisfaction" },
+                { number: "2+", label: "Years in Frontend Roles" },
+                { number: "4", label: "Stronger Featured Case Studies" },
+                { number: "React", label: "Primary Product Stack" },
+                { number: "UI + UX", label: "Implementation Focus" },
               ].map((stat, index) => (
                 <div
                   key={index}
@@ -180,6 +186,10 @@ export default function About() {
                     scale: 1.05,
                     rotateY: 5,
                     boxShadow: "0 10px 30px rgba(0, 210, 255, 0.2)",
+                    transition: {
+                      duration: 0.15,
+                      delay: 0,
+                    },
                   }}
                   viewport={{ once: true }}
                   className="glass-effect p-4 rounded-xl border border-white/10 hover:border-neon-blue/30 transition-all duration-300 group cursor-pointer"

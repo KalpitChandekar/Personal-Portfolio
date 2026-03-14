@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -38,6 +38,22 @@ const categories = [
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAllSkills, setShowAllSkills] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateIsMobile = (event?: MediaQueryListEvent) => {
+      const matches = event?.matches ?? mediaQuery.matches;
+      setIsMobile(matches);
+      setShowAllSkills(!matches);
+    };
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => mediaQuery.removeEventListener("change", updateIsMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -87,6 +103,8 @@ export default function Skills() {
     return () => ctx.revert();
   }, []);
 
+  const visibleSkills = isMobile && !showAllSkills ? skills.slice(0, 6) : skills;
+
   return (
     <section
       id="skills"
@@ -122,7 +140,7 @@ export default function Skills() {
           ref={skillsRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skills.map((skill, index) => (
+          {visibleSkills.map((skill, index) => (
             <motion.div
               key={skill.name}
               whileHover={{
@@ -204,6 +222,18 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
+
+        {isMobile && skills.length > 6 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllSkills((current) => !current)}
+              className="px-5 py-2.5 rounded-full border border-neon-blue/40 text-sm font-medium text-neon-blue hover:bg-neon-blue hover:text-black transition-all duration-300"
+            >
+              {showAllSkills ? "Show Less" : `Show ${skills.length - 6} More`}
+            </button>
+          </div>
+        )}
 
         {/* Skills Summary */}
         <motion.div

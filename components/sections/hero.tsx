@@ -9,7 +9,7 @@ import {
   MeshDistortMaterial,
   Float,
 } from "@react-three/drei";
-import { ChevronDown, Code, Palette, Zap } from "lucide-react";
+import { ChevronDown, Code, Palette, Sparkles, Zap } from "lucide-react";
 
 function AnimatedSphere() {
   return (
@@ -130,7 +130,7 @@ export default function Hero() {
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold leading-tight">
                 <span className="text-white">Hi, I'm </span>
-                <span className="neon-text text-transparent bg-clip-text bg-neon-gradient block lg:inline">
+                <span className="text-transparent bg-clip-text bg-neon-gradient block lg:inline [filter:drop-shadow(0_4px_14px_rgba(0,210,255,0.2))]">
                   Kalpit Chandekar
                 </span>
               </h1>
@@ -151,7 +151,7 @@ export default function Hero() {
                 <span className="text-neon-purple font-medium">
                   web applications
                 </span>{" "}
-                that solve real-world problems
+                that solve real-world problems with smart, AI-assisted workflows
               </p>
 
               {/* Feature highlights */}
@@ -163,6 +163,10 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                   <Palette className="w-4 h-4 text-neon-purple" />
                   <span>UI/UX Design</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-neon-blue" />
+                  <span>AI-Powered Workflow</span>
                 </div>
               </div>
             </motion.div>

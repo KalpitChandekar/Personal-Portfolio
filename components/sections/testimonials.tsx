@@ -139,9 +139,9 @@ export default function Testimonials() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="w-full"
               >
-                <div className="glass-effect rounded-3xl p-8 lg:p-12 border border-white/10 hover:border-neon-blue/30 transition-all duration-500 relative">
+                <div className="glass-effect rounded-3xl p-6 pt-16 sm:p-8 sm:pt-8 lg:p-12 border border-white/10 hover:border-neon-blue/30 transition-all duration-500 relative">
                   {/* Quote Icon */}
-                  <div className="absolute -top-6 -left-6 w-12 h-12 bg-neon-gradient rounded-full flex items-center justify-center">
+                  <div className="absolute top-4 left-4 sm:-top-6 sm:-left-6 w-12 h-12 bg-neon-gradient rounded-full flex items-center justify-center">
                     <Quote className="w-6 h-6 text-black" />
                   </div>
 
@@ -158,7 +158,7 @@ export default function Testimonials() {
                   </div>
 
                   {/* Testimonial Text */}
-                  <blockquote className="text-xl lg:text-2xl text-white leading-relaxed mb-8 font-light">
+                  <blockquote className="text-lg sm:text-xl lg:text-2xl text-white leading-relaxed mb-8 font-light pr-1">
                     "{testimonials[currentIndex].text}"
                   </blockquote>
 
@@ -171,11 +171,11 @@ export default function Testimonials() {
                       className="w-16 h-16 rounded-full border-2 border-neon-blue/30"
                       loading="lazy"
                     />
-                    <div>
-                      <h4 className="text-lg font-poppins font-semibold text-white mb-1">
+                    <div className="min-w-0">
+                      <h4 className="text-lg font-poppins font-semibold text-white mb-1 break-words">
                         {testimonials[currentIndex].author}
                       </h4>
-                      <p className="text-neon-blue font-medium">
+                      <p className="text-neon-blue font-medium break-words">
                         {testimonials[currentIndex].role}
                       </p>
                       <p className="text-gray-400 text-sm">

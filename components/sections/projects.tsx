@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -118,6 +118,22 @@ const projects = [
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateIsMobile = (event?: MediaQueryListEvent) => {
+      const matches = event?.matches ?? mediaQuery.matches;
+      setIsMobile(matches);
+      setShowAllProjects(!matches);
+    };
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => mediaQuery.removeEventListener("change", updateIsMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -146,6 +162,9 @@ export default function Projects() {
 
     return () => ctx.revert();
   }, []);
+
+  const visibleProjects =
+    isMobile && !showAllProjects ? projects.slice(0, 3) : projects;
 
   return (
     <section
@@ -182,7 +201,7 @@ export default function Projects() {
           ref={projectsRef}
           className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
         >
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.div
               key={project.id}
               whileHover={{
@@ -309,6 +328,20 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+        {isMobile && projects.length > 3 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllProjects((current) => !current)}
+              className="px-5 py-2.5 rounded-full border border-neon-blue/40 text-sm font-medium text-neon-blue hover:bg-neon-blue hover:text-black transition-all duration-300"
+            >
+              {showAllProjects
+                ? "Show Less"
+                : `Show ${projects.length - 3} More`}
+            </button>
+          </div>
+        )}
 
         {/* View More Button */}
         {/* <motion.div
