@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -59,7 +60,7 @@ export default function Testimonials() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -142,15 +143,16 @@ export default function Testimonials() {
                 <div className="glass-effect rounded-3xl p-6 pt-16 sm:p-8 sm:pt-8 lg:p-12 border border-white/10 hover:border-neon-blue/30 transition-all duration-500 relative">
                   {/* Quote Icon */}
                   <div className="absolute top-4 left-4 sm:-top-6 sm:-left-6 w-12 h-12 bg-neon-gradient rounded-full flex items-center justify-center">
-                    <Quote className="w-6 h-6 text-black" />
+                    <Quote aria-hidden="true" className="w-6 h-6 text-black" />
                   </div>
 
                   {/* Stars */}
-                  <div className="flex items-center gap-1 mb-6">
+                  <div className="mt-8 mb-6 flex items-center gap-1 sm:mt-0">
                     {[...Array(testimonials[currentIndex].rating)].map(
                       (_, i) => (
                         <Star
                           key={i}
+                          aria-hidden="true"
                           className="w-5 h-5 text-yellow-400 fill-current"
                         />
                       )
@@ -164,13 +166,19 @@ export default function Testimonials() {
 
                   {/* Author Info */}
                   <div className="flex items-center gap-4">
-                    <motion.img
+                    <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
-                      src={testimonials[currentIndex].avatar}
-                      alt={testimonials[currentIndex].author}
-                      className="w-16 h-16 rounded-full border-2 border-neon-blue/30"
-                      loading="lazy"
-                    />
+                      className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-neon-blue/30"
+                    >
+                      <Image
+                        src={testimonials[currentIndex].avatar}
+                        alt={testimonials[currentIndex].author}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </motion.div>
                     <div className="min-w-0">
                       <h4 className="text-lg font-poppins font-semibold text-white mb-1 break-words">
                         {testimonials[currentIndex].author}
@@ -218,6 +226,7 @@ export default function Testimonials() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevTestimonial}
+              aria-label="Previous testimonial"
               className="w-12 h-12 glass-effect rounded-full border border-white/20 flex items-center justify-center text-white hover:border-neon-blue/50 hover:text-neon-blue transition-all duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -231,6 +240,7 @@ export default function Testimonials() {
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                   onClick={() => goToTestimonial(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? "bg-neon-blue scale-125"
@@ -245,6 +255,7 @@ export default function Testimonials() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextTestimonial}
+              aria-label="Next testimonial"
               className="w-12 h-12 glass-effect rounded-full border border-white/20 flex items-center justify-center text-white hover:border-neon-blue/50 hover:text-neon-blue transition-all duration-300"
             >
               <ChevronRight className="w-5 h-5" />

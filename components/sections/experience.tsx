@@ -98,7 +98,7 @@ export default function Experience() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -115,7 +115,7 @@ export default function Experience() {
           scrollTrigger: {
             trigger: timelineRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -155,9 +155,9 @@ export default function Experience() {
         </motion.div>
 
         <div ref={timelineRef} className="relative">
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neon-blue to-neon-purple timeline-line origin-top" />
+          <div className="timeline-line absolute top-0 bottom-0 left-3 w-0.5 origin-top bg-gradient-to-b from-neon-blue to-neon-purple sm:left-5 md:left-1/2 md:-translate-x-1/2" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 md:space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
@@ -165,23 +165,23 @@ export default function Experience() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`timeline-item relative flex items-center ${
+                className={`timeline-item relative flex items-start md:items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-neon-gradient rounded-full border-4 border-gray-900 z-10" />
+                <div className="absolute left-3 top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-gray-900 bg-neon-gradient sm:left-5 md:left-1/2" />
 
                 <div
-                  className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                  className={`w-full pl-8 sm:pl-12 md:w-5/12 md:pl-0 ${
                     index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
                   }`}
                 >
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     transition={{ duration: 0.3 }}
-                    className="glass-effect rounded-xl p-6 border border-white/10 hover:border-neon-blue/30 transition-all duration-300"
+                    className="glass-effect rounded-xl border border-white/10 p-5 transition-all duration-300 hover:border-neon-blue/30 sm:p-6"
                   >
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="mb-4 flex items-start justify-between gap-3">
                       <div className="flex-1">
                         <h3 className="text-xl font-poppins font-semibold text-white mb-1">
                           {exp.title}
@@ -199,7 +199,7 @@ export default function Experience() {
                       <Briefcase className="w-6 h-6 text-neon-purple ml-4 flex-shrink-0" />
                     </div>
 
-                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
+                    <div className="mb-4 flex flex-col gap-3 text-sm text-gray-400 sm:flex-row sm:flex-wrap sm:gap-4">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         <span>{exp.period}</span>
@@ -210,15 +210,15 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 mb-4 leading-relaxed">
+                    <p className="mb-4 leading-relaxed text-gray-300">
                       {exp.description}
                     </p>
 
-                    <ul className="space-y-2 mb-6">
+                    <ul className="mb-6 space-y-2">
                       {exp.responsibilities.map((responsibility) => (
                         <li
                           key={responsibility}
-                          className="text-sm text-gray-400 flex items-start gap-2"
+                          className="flex items-start gap-2 text-sm text-gray-400"
                         >
                           <span className="w-1.5 h-1.5 bg-neon-blue rounded-full mt-2 flex-shrink-0" />
                           <span>{responsibility}</span>
