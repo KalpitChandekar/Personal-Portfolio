@@ -12,6 +12,16 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 0,
+    title: "Forest by Heartfulness",
+    description:
+      "A live web experience built for Heartfulness that presents Forest by Heartfulness with a polished interface, clear storytelling, and a production-ready frontend focused on smooth navigation and a strong user experience.",
+    image: "/projects/fbh.png",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "Production UI"],
+    liveUrl: "https://fbh.dev.heartfulness.org/",
+    featured: true,
+  },
+  {
+    id: 1,
     title: "ShopSphere - E-commerce Platform",
     description:
       "ShopSphere is a modern ecommerce website built for practicing frontend development. It features a clean UI, responsive design, and a seamless shopping experience for browsing, adding to cart, and checkout.",
@@ -19,10 +29,10 @@ const projects = [
     technologies: ["TypeScript", "NextJS", "Stripe API", "TailwindCSS"],
     liveUrl: "https://shop-sphere-ecommerce-three.vercel.app/",
     githubUrl: "https://github.com/KalpitChandekar/ShopSphere-Ecommerce",
-    featured: true,
+    featured: false,
   },
   {
-    id: 1,
+    id: 2,
     title: "World Explorer",
     description:
       "World Explorer is an interactive web application that allows users to explore detailed information about every country in the world. From capitals, regions, and population to flags, currencies, and geography, the app makes discovering countries simple and engaging.",
@@ -30,10 +40,10 @@ const projects = [
     technologies: ["TypeScript", "React", "REST API", "TailwindCSS"],
     liveUrl: "https://world-explorer-olive.vercel.app/",
     githubUrl: "https://github.com/KalpitChandekar/World-Explorer",
-    featured: true,
+    featured: false,
   },
   {
-    id: 2,
+    id: 3,
     title: "TaskFlow - Project Manager",
     description:
       "A comprehensive project management application with task tracking, team collaboration, and real-time updates. Built with modern TypeScript and responsive design.",
@@ -42,19 +52,7 @@ const projects = [
     technologies: ["TypeScript", "React", "Node.js", "MongoDB"],
     liveUrl: "https://taskflow-kalpit.netlify.app/",
     githubUrl: "https://github.com/KalpitChandekar/TaskFlow__Project-Manager",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "User Login System",
-    description:
-      "A practice project focused on building a user login system with basic authentication and profile management. Created to learn and experiment with authentication workflows and CRUD operations.",
-    image:
-      "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600",
-    technologies: ["JavaScript", "MongoDB", "Express.js", "Node.js"],
-    liveUrl: "https://github.com/KalpitChandekar/user-mongodb",
-    githubUrl: "https://github.com/KalpitChandekar/user-mongodb",
-    featured: true,
+    featured: false,
   },
   {
     id: 4,
@@ -69,17 +67,6 @@ const projects = [
   },
   {
     id: 5,
-    title: "Tic-Tac-Toe",
-    description:
-      "A classic game reimagined with modern UI design and smart game logic. Features smooth animations and an engaging user experience.",
-    image:
-      "https://images.pexels.com/photos/278888/pexels-photo-278888.jpeg?auto=compress&cs=tinysrgb&w=600",
-    technologies: ["JavaScript", "CSS3", "HTML5", "Game Logic"],
-    liveUrl: "https://tictactoekc.netlify.app/",
-    githubUrl: "https://github.com/KalpitChandekar/Tic-Tac-Toe",
-  },
-  {
-    id: 6,
     title: "Drum Kit Interactive",
     description:
       "A fun and interactive drum kit web application created with vanilla JavaScript. Play different drum sounds with keyboard or mouse interactions.",
@@ -88,29 +75,6 @@ const projects = [
     technologies: ["JavaScript", "HTML5", "CSS3", "Audio API"],
     liveUrl: "https://drum-kit-kc.netlify.app/",
     githubUrl: "https://github.com/KalpitChandekar/Drum-Kit",
-    featured: false,
-  },
-  {
-    id: 7,
-    title: "Sidcup Family Golf",
-    description:
-      "A beautiful and responsive website for a family golf club, showcasing modern web design principles and smooth user interactions.",
-    image:
-      "https://images.pexels.com/photos/1325735/pexels-photo-1325735.jpeg?auto=compress&cs=tinysrgb&w=600",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    liveUrl: "https://sidcupfamilygolfkc.netlify.app/",
-    githubUrl: "https://github.com/KalpitChandekar/sidcup-family-golf",
-  },
-  {
-    id: 8,
-    title: "Magma Interactive",
-    description:
-      "A creative web application featuring HTML5 Canvas animations and GSAP interactions. Demonstrates advanced animation techniques and user engagement.",
-    image:
-      "https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=600",
-    technologies: ["JavaScript", "HTML5 Canvas", "GSAP", "CSS3"],
-    liveUrl: "https://magmakc.netlify.app/",
-    githubUrl: "https://github.com/KalpitChandekar/Magma",
     featured: false,
   },
 ];
@@ -156,7 +120,7 @@ export default function Projects() {
             start: "top 80%",
             toggleActions: "play none none reverse",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -185,7 +149,7 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-poppins font-bold mb-4">
-            <span className="text-white">Featured </span>
+            <span className="text-white">My </span>
             <span className="text-transparent bg-clip-text bg-neon-gradient">
               Projects
             </span>
@@ -239,15 +203,17 @@ export default function Projects() {
                     <Eye className="w-4 h-4 mr-2" />
                     Preview
                   </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="bg-white/10 border-white/20 text-white hover:bg-neon-purple hover:border-neon-purple hover:text-black transition-all duration-300"
-                    onClick={() => window.open(project.githubUrl, "_blank")}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                  {project.githubUrl && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="bg-white/10 border-white/20 text-white hover:bg-neon-purple hover:border-neon-purple hover:text-black transition-all duration-300"
+                      onClick={() => window.open(project.githubUrl, "_blank")}
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  )}
                 </motion.div>
 
                 {/* Featured Badge */}
@@ -289,13 +255,15 @@ export default function Projects() {
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
                   </button>
-                  <button
-                    onClick={() => window.open(project.githubUrl, "_blank")}
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 text-sm font-medium"
-                  >
-                    <Github className="w-4 h-4" />
-                    Source
-                  </button>
+                  {project.githubUrl && (
+                    <button
+                      onClick={() => window.open(project.githubUrl, "_blank")}
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 text-sm font-medium"
+                    >
+                      <Github className="w-4 h-4" />
+                      Source
+                    </button>
+                  )}
                 </div>
               </div>
 

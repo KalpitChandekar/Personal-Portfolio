@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
   {
     id: 1,
-    text: "Kalpit consistently delivers high-quality work and brings innovative solutions to our product. His dedication is a key asset to Salk AI.",
+    text: "Kalpit has been a dependable part of the team and consistently delivers with ownership. From a leadership perspective, what stands out is his ability to understand product priorities, stay accountable, and execute without needing constant direction.",
     author: "Prathmesh Tokekar",
     role: "CEO",
     company: "Salk AI",
@@ -21,7 +21,16 @@ const testimonials = [
   },
   {
     id: 2,
-    text: "Working with Kalpit is always a pleasure. He is proactive, reliable, and a true team player.",
+    text: "What impressed me most about Kalpit is how effectively he translates ideas into practical, well-built solutions. As a founder, I appreciate his clarity in execution, problem-solving mindset, and ability to contribute real momentum to a product.",
+    author: "Anshuman Rai",
+    role: "Founder & CEO",
+    company: "BugCure",
+    rating: 5,
+    avatar: "/testimonial/anshuman.jpg",
+  },
+  {
+    id: 3,
+    text: "Working with Kalpit as a fellow engineer has always been smooth and productive. He is dependable, technically sharp, and collaborates well across the stack, which makes building and shipping features with him much easier.",
     author: "Rohit Ghivdonde",
     role: "Backend Developer",
     company: "Microsoft & Salk AI",
@@ -29,20 +38,19 @@ const testimonials = [
     avatar: "/testimonial/rohit.jpeg",
   },
   {
-    id: 3,
-    text: "Kalpit's technical skills and attention to detail make him a standout developer on our team.",
+    id: 4,
+    text: "Kalpit stands out for his technical depth, clean implementation, and attention to detail. From an engineering perspective, he brings consistency, thoughtful problem-solving, and a strong standard of quality to the team.",
     author: "Karan Chandekar",
-    role: "FullStack Developer",
+    role: "Software Engineer",
     company: "Salk AI",
     rating: 5,
-    avatar: "/testimonial/karan.jpeg",
+    avatar: "/testimonial/karan.png",
   },
 ];
 
 export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,7 +70,7 @@ export default function Testimonials() {
             start: "top 80%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -71,30 +79,25 @@ export default function Testimonials() {
 
   // Auto-play testimonials
   useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
+    const timeout = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
 
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+    return () => clearTimeout(timeout);
+  }, [currentIndex]);
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    setIsAutoPlaying(false);
   };
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
-    setIsAutoPlaying(false);
   };
 
   const goToTestimonial = (index: number) => {
     setCurrentIndex(index);
-    setIsAutoPlaying(false);
   };
 
   return (
@@ -116,7 +119,7 @@ export default function Testimonials() {
           className="testimonial-header text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-poppins font-bold mb-4">
-            <span className="text-white">Client </span>
+            <span className="text-white">Colleagues </span>
             <span className="text-transparent bg-clip-text bg-neon-gradient">
               Testimonials
             </span>
@@ -155,7 +158,7 @@ export default function Testimonials() {
                           aria-hidden="true"
                           className="w-5 h-5 text-yellow-400 fill-current"
                         />
-                      )
+                      ),
                     )}
                   </div>
 
@@ -265,7 +268,7 @@ export default function Testimonials() {
           {/* Auto-play Indicator */}
           <motion.div
             initial={{ width: "100%" }}
-            animate={{ width: isAutoPlaying ? "0%" : "100%" }}
+            animate={{ width: "0%" }}
             transition={{ duration: 5, ease: "linear" }}
             className="h-1 bg-neon-gradient rounded-full mt-8 mx-auto max-w-xs"
             key={currentIndex}
