@@ -18,7 +18,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Kalpit Chandekar - Frontend & Web Developer",
+  title: "Kalpit Chandekar - Frontend Developer",
   description:
     "Frontend developer specializing in React, Next.js, and TypeScript. Creating user-friendly solutions that solve real-world problems.",
   keywords:
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   creator: "Kalpit Chandekar",
   metadataBase: new URL("https://kalpit-portfolio.vercel.app"),
   openGraph: {
-    title: "Kalpit Chandekar - Frontend & Web Developer",
+    title: "Kalpit Chandekar - Frontend Developer",
     description:
       "Frontend developer specializing in React, Next.js, and TypeScript. Creating user-friendly solutions that solve real-world problems.",
     url: "https://kalpit-portfolio.vercel.app",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kalpit Chandekar - Frontend & Web Developer",
+    title: "Kalpit Chandekar - Frontend Developer",
     description:
       "Frontend developer specializing in React, Next.js, and TypeScript.",
     creator: "@kalpit_dev",

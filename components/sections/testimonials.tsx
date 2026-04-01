@@ -46,6 +46,15 @@ const testimonials = [
     rating: 5,
     avatar: "/testimonial/karan.png",
   },
+  {
+    id: 5,
+    text: "Working with Kalpit on the frontend was a smooth experience. He turns ideas into clean, responsive UI, handles feedback well, and delivers reliably without needing constant follow-up.",
+    author: "Aditya Mishra",
+    role: "Collaborator",
+    company: "BugCure",
+    rating: 5,
+    avatar: "/testimonial/aditya.png",
+  },
 ];
 
 export default function Testimonials() {
